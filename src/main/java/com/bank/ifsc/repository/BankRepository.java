@@ -30,6 +30,9 @@ public interface BankRepository extends JpaRepository<BankModel, String> {
 
 	@Query(value = "select * from bank_details where bank=?1 and state=?2 and district=?3 and branch=?4", nativeQuery = true)
 	List<BankModel> findIfsc(String bankname, String state, String district, String branch);
+
+	@Query(value = "select * from bank_details where bank=?1 and branch=?2", nativeQuery = true)
+	List<BankModel> findBankByBranch(String bankname, String branch);
 	
 	
 

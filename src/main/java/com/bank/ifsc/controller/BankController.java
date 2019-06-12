@@ -67,4 +67,10 @@ public class BankController {
 		List<BankModel> ifscdetails=bankrepository.findIfsc(bankname,state,district,branch);
 		return ResponseEntity.status(HttpStatus.OK).body(ifscdetails);
 	}
+	@GetMapping("/bankdetail/{bankname}/{branch}")
+	public ResponseEntity<?> getBankByBranch(@PathVariable (value = "bankname") String bankname,@PathVariable (value = "branch") String branch){
+		List<BankModel> bankdetail=bankrepository.findBankByBranch(bankname,branch);
+		return ResponseEntity.status(HttpStatus.OK).body(bankdetail);
+	}
+	
 }
