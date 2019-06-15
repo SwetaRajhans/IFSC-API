@@ -11,7 +11,7 @@ import com.bank.ifsc.model.BankModel;
 
 public interface BankRepository extends JpaRepository<BankModel, String> {
 
-	Optional<BankModel> findByIfsc(String ifsc);
+	List<BankModel> findByIfsc(String ifsc);
 
 	List<BankModel> findByBank(String bankName);
 
